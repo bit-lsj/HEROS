@@ -3,6 +3,10 @@ HEROS: Hierarchical Exploration with Online Subregion Updating for 3D Environmen
 
 ## The code will be open-sourced after the paper is accepted
 
+## Paper 
+
+[Arxiv](https://arxiv.org/abs/2407.11326)
+
 ## Cite
 ```
 @article{long2024heros,
