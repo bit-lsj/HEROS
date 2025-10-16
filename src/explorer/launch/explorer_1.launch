@@ -1,0 +1,45 @@
+<launch>
+    <node pkg="explorer" type="explorer_node" name="explorer_node" output="screen">
+        <!-- ufomap -->
+        <param name="resolution" value="0.3"/>
+        <param name="depth_levels" value="16"/>
+        <param name="occupied_thres" value="0.5"/> 
+        <param name="free_thres" value="0.5"/>
+        <param name="map_update_max_range" value="13.0"/>
+        <!-- topic -->
+        <param name="odom_topic" value="/state_estimation"/>
+        <param name="point_cloud_topic" value="/sensor_scan"/>
+        <!-- vehicle -->
+        <param name="vehicle_width" value="0.6"/>
+        <param name="vehicle_length" value="0.6"/>
+        <param name="sensor_height" value="0.75"/>
+        <param name="sensor_vertical_fov" value="30.0"/>
+        <!-- frontier -->
+        <param name="frontier_voxel_size" value="0.6"/>
+        <param name="search_radius_min" value="3.0"/>
+        <!-- scene_1 -->
+        <param name="bound_x_min" value="-45"/>
+        <param name="bound_x_max" value="55.0"/>
+        <param name="bound_y_min" value="-3"/>
+        <param name="bound_y_max" value="77.0"/>
+        <!--graph-->
+        <param name="max_neighbor_num" value="6"/>
+        <param name="max_neighbor_distance" value="2"/>
+        <param name="min_edge_distance" value="1"/>
+        <param name="max_edge_distance" value="3"/>
+        <param name="sample_density" value="1"/>
+        <param name="inflate_radius" value="0.2"/>
+        <!-- subregion -->
+        <param name="subregion_min_width" value="20.0"/>
+        <param name="subregion_min_length" value="20.0"/>
+        <param name="subregion_max_width" value="40.0"/>
+        <param name="subregion_max_length" value="40.0"/>
+        <param name="known_voxel_thre" value="0.40"/>
+        <param name="frontier_thre" value="10"/>
+        <!-- viewpoint -->
+        <param name="visible_radius" value="10.0"/>
+        <param name="filter_thres" value="1"/>
+    </node>
+
+    <include file="$(find explorer)/launch/terrain_map.launch" />
+</launch>

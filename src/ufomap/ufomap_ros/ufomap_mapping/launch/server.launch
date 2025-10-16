@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<launch>
+	<arg name="resolution" default="0.2" />
+	<arg name="depth_levels" default="16" />
+	<arg name="num_workers" default="1" />
+	<arg name="color" default="true" />
+	<arg name="max_range" default="13" />
+	<arg name="insert_depth" default="0" />
+
+  <node pkg="ufomap_mapping" type="ufomap_mapping_server_node" name="ufomap_mapping_server_node" output="log" required="true">
+		<remap from="cloud_in" to="/sensor_scan" />
+
+		<param name="num_workers" value="$(arg num_workers)" />
+		<param name="resolution" value="$(arg resolution)" />
+		<param name="depth_levels" value="$(arg depth_levels)" />
+		<param name="color_map" value="$(arg color)"/>
+		<param name="max_range" value="$(arg max_range)"/>
+		<param name="insert_depth" value="$(arg insert_depth)"/>
+		
+		<param name="robot_frame_id" value="vehicle"/>
+		<param name="prob_hit" value="0.7"/>
+		<param name="prob_miss" value="0.4"/>
+		<param name="simple_ray_casting" value="false"/>
+		<param name="update_part_of_map" value="true"/>
+		<param name="clear_robot" value="false"/>
+		<param name="update_rate" value="0.0"/>
+
+  </node>
+</launch>

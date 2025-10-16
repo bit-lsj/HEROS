@@ -1,0 +1,14 @@
+<launch>
+    <node pkg="explorer" type="terrain_map_node" name="terrain_map_node" output="screen">
+        <!-- terrain map -->
+        <param name="world_frame" value="map"/>
+        <param name="terrain_map_width" value="20"/>
+        <param name="terrain_map_height" value="20"/>
+        <param name="map_resolution" value="0.2"/>
+        <param name="elevation_thre" value="0.15"/>
+        <!-- topic -->
+        <param name="odom_topic" value="/state_estimation"/>
+        <param name="point_cloud_topic" value="/terrain_map_ext"/>
+    </node>
+
+</launch>
